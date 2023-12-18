@@ -16,9 +16,19 @@ jobs:
     steps:
 
       - name: Echo client credential engg
-        run: echo "admin_client_secret=${{ secrets.ADMIN_CLIENT_SECRET }}"
+        run: echo "admin_client_secret=${{ secrets.ADMIN_CLIENT_SECRET }}" >> env/${{env.ENV}}.properties
         if: inputs.environment == 'Engg'
   
       - name: Echo client creds stage
         run: echo "STAGE=${{ secrets.ADMIN_CLIENT_SECRET }}"
         if: inputs.environment == 'Stage'
+
+      - uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+      - name: Run tests with Maven
+        run: mvn clean test -P${{env.ENV}}
