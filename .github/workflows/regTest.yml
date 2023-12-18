@@ -8,11 +8,16 @@ on:
         description: Select the environment
 
 jobs:
-  build:
+  Regression:
 
     runs-on: ubuntu-latest
 
     steps:
 
-    - name: Echo client credential
+    - name: Echo client credential engg
       run: echo "admin_client_secret=${{ secrets.ADMIN_CLIENT_SECRET }}"
+      if: inputs.environment == 'Engg'
+
+    - name: Echo client creds stage
+      run: echo "STAGE=${{ secrets.ADMIN_CLIENT_SECRET }}"
+      if: inputs.environment == 'Stage'
