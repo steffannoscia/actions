@@ -16,7 +16,7 @@ jobs:
     steps:
 
       - name: Echo client credential engg
-        run: echo "admin_client_secret=${{ secrets.ADMIN_CLIENT_SECRET }}" >> env/${{env.ENV}}.properties
+        run: echo "admin_client_secret=${{ secrets.ADMIN_CLIENT_SECRET }}" >> env/${{vars.ENV}}.properties
         if: inputs.environment == 'Engg'
   
       - name: Echo client creds stage
