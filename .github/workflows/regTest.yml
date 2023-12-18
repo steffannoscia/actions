@@ -1,4 +1,4 @@
-name: Keycloak Regression Test
+name: Keycloak ${{inputs.environment}} Regression Test
 
 on:
   workflow_dispatch:
