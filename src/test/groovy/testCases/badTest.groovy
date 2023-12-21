@@ -15,6 +15,7 @@ class testTest extends Specification {
         then:
         env == "stage"
         props['admin_client_secret'] == "stagetest"
+        props['TST'] == "test-string"
 
     }
 }
