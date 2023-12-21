@@ -22,7 +22,7 @@ jobs:
         if: inputs.environment == 'Engg'
   
       - name: Echo client creds stage
-        run: echo "STAGE=${{ secrets.ADMIN_CLIENT_SECRET }}"
+        run: echo "admin_client_secret=${{ secrets.ADMIN_CLIENT_SECRET }}" >> ./env/${{vars.ENV}}.properties
         if: inputs.environment == 'Stage'
         
       - name: Set up JDK 17
