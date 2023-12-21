@@ -17,6 +17,7 @@ jobs:
     steps:
 
       - uses: actions/checkout@v3
+      
       - name: Echo client credential engg
         run: echo "admin_client_secret=${{ secrets.ADMIN_CLIENT_SECRET }}" >> ./env/${{vars.ENV}}.properties
         if: inputs.environment == 'Engg'
