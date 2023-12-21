@@ -16,6 +16,7 @@ class testTest extends Specification {
         env == "engg"
         props['test_prop'] == "THIS_A_TEST"
         props['admin_client_secret'] == "secretTest"
+        props['t'] == "t"
 
     }
 }
