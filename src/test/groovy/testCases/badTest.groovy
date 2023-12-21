@@ -7,10 +7,14 @@ class testTest extends Specification {
     def "test"() {
 
         when:
-        def bad = "BAD"
+        String env = System.properties['env'];
+        Properties props = new Properties()  
+        File propsFile = new File("env/${env}.properties")  
+        propsFile.withInputStream { props.load(it) }  
 
         then:
-        bad != "BAD"
+        env == "stage"
+        props['admin_client_secret'] == "stagetest"
 
     }
 }
